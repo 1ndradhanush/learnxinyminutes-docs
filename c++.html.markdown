@@ -1,5 +1,5 @@
 ---
-language: c++
+language: C++
 filename: learncpp.cpp
 contributors:
     - ["Steven Basart", "https://github.com/xksteven"]
@@ -8,6 +8,7 @@ contributors:
     - ["Connor Waters", "https://github.com/connorwaters"]
     - ["Ankush Goyal", "https://github.com/ankushg07"]
     - ["Jatin Dhankhar", "https://github.com/jatindhankhar"]
+    - ["Indra Joshi", "https://github.com/1ndradhanush"]
 ---
 
 C++ is a systems programming language that,
@@ -158,6 +159,10 @@ namespace Second {
     {
         printf("This is Second::foo\n");
     }
+    void bar()
+    {
+    	printf("This is Second::bar\n");
+    }
 }
 
 void foo()
@@ -168,10 +173,12 @@ void foo()
 int main()
 {
     // Includes all symbols from namespace Second into the current scope. Note
-    // that simply foo() no longer works, since it is now ambiguous whether
-    // we're calling the foo in namespace Second or the top level.
+    // that while bar() works, simply using foo() no longer works, since it is
+    // now ambiguous whether we're calling the foo in namespace Second or the
+    // top level.
     using namespace Second;
 
+    bar(); // prints "This is Second::bar"
     Second::foo(); // prints "This is Second::foo"
     First::Nested::foo(); // prints "This is First::Nested::foo"
     ::foo(); // prints "This is global foo"
@@ -946,7 +953,7 @@ mymap.insert(pair<char,int>('Z',26));
 // To iterate
 map<char,int>::iterator it;
 for (it=mymap.begin(); it!=mymap.end(); ++it)
-    std::cout << it->first << "->" << it->second << std::cout;
+    std::cout << it->first << "->" << it->second << std::endl;
 // Output:
 // A->1
 // Z->26
@@ -1196,5 +1203,6 @@ compl 4    // Performs a bitwise not
 Further Reading:
 
 * An up-to-date language reference can be found at [CPP Reference](http://cppreference.com/w/cpp).
-* Additional resources may be found at [CPlusPlus](http://cplusplus.com).
+* A tutorial  for beginners or experts, covering many modern features and good practices: [LearnCpp.com](https://www.learncpp.com/)
 * A tutorial covering basics of language and setting up coding environment is available at [TheChernoProject - C++](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb).
+* Additional resources may be found at [CPlusPlus](http://cplusplus.com).
